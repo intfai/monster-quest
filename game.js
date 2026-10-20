@@ -607,6 +607,9 @@
   hint.innerHTML = `<kbd>Enter</kbd> 开始　·　最高分 ${best}`;
   requestAnimationFrame(frame);
 
+  // 便于演示与自动化截图：?start=1 直接开局
+  if (new URLSearchParams(location.search).has('start')) startGame();
+
   // 便于自动化测试/调试
   window.__mq = {
     get state() { return state; },
