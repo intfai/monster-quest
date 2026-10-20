@@ -616,6 +616,10 @@
     get score() { return score; },
     get level() { return level; },
     get enemies() { return enemies.length; },
+    get x() { return player.x; },
+    get y() { return player.y; },
+    get hp() { return player.hp; },
+    get enemyList() { return enemies.map((e) => ({ x: e.x, y: e.y, hp: e.hp, type: e.type })); },
     start: startGame,
   };
 })();
