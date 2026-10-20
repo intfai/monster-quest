@@ -1,0 +1,65 @@
+name: Bug 报告
+description: 游戏出现异常行为（卡住、穿模、数值不对、没反应）
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。请尽量写具体——"游戏坏了"没法复现，也就没法修。
+
+  - type: textarea
+    id: what
+    attributes:
+      label: 发生了什么
+      description: 一句话描述现象
+      placeholder: 第三关 Boss 冲锋时，玩家被推出画面边界，之后无法移动
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 第几关、做了什么操作
+      placeholder: |
+        1. 进入第三章
+        2. 等 Boss 蓄力
+        3. 贴着左边界站着
+        4. 被撞后卡在墙里
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+      placeholder: 被撞击后仍然在画面内，可以继续移动
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: 浏览器与系统
+      placeholder: Chrome 129 / macOS 15
+    validations:
+      required: true
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: 设备
+      options:
+        - 桌面（键盘）
+        - 手机 / 平板（触屏）
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充信息
+      description: 截图、录屏、控制台报错（F12 → Console）
+    validations:
+      required: false
