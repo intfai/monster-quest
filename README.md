@@ -2,9 +2,9 @@
 
 一个零依赖的 Canvas 街机小游戏。移动、挥砍、清场、进传送门——三关之后是 Boss。
 
-**在线玩：** https://intfai.github.io/monster-quest/
+**[▶ 在线试玩](https://intfai.github.io/monster-quest/)** · [![Pages](https://img.shields.io/badge/GitHub%20Pages-online-f0883e)](https://intfai.github.io/monster-quest/) [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE) [![Dependencies](https://img.shields.io/badge/dependencies-0-4ade80)](package.json)
 
-![三关 · 有 Boss](https://img.shields.io/badge/关卡-3%20%2B%20Boss-f0883e) ![无依赖](https://img.shields.io/badge/依赖-0-4ade80) ![MIT](https://img.shields.io/badge/license-MIT-blue)
+![游戏画面](assets/screenshot.png)
 
 ## 玩法
 
@@ -14,7 +14,7 @@
 | 攻击 | `J` / `空格` | 右下攻击键 |
 | 开始 / 重开 | `Enter` | — |
 
-规则很简单：挥砍命中敌人扣血，清空当关所有敌人后中央出现传送门，走进去进入下一关。生命 5 点，被碰到掉血并有 1 秒无敌时间。
+挥砍命中敌人扣血，清空当关所有敌人后中央出现传送门，走进去进入下一关。生命 5 点，被碰到掉血并获得 1 秒无敌时间。**每过一关回复 2 点生命**，避免连锁暴毙。
 
 ## 内容
 
@@ -24,21 +24,19 @@
 | 第二章 · 洞窟回响 | 史莱姆 ×4、蝙蝠 ×3 |
 | 第三章 · 深渊之口 | 史莱姆 ×2、蛮兽 ×2、**Boss ×1** |
 
-敌人类型：
-
-- **史莱姆**：慢速追踪，2 血
-- **蝙蝠**：快速、正弦摆动飞行，1 血
-- **蛮兽**：慢速高血，撞击伤害 2
-- **Boss**：22 血，周期性蓄力冲锋
+| 敌人 | 生命 | 特点 |
+|---|---|---|
+| 史莱姆 | 2 | 慢速追踪 |
+| 蝙蝠 | 1 | 快速、正弦摆动飞行 |
+| 蛮兽 | 5 | 慢速高血，撞击伤害 2 |
+| Boss | 22 | 周期性蓄力冲锋，冲锋前有预警音 |
 
 ## 本地运行
 
-纯静态文件，不需要构建，也不需要装依赖：
+纯静态文件，不需要构建，也不需要装任何依赖：
 
 ```bash
-# 任选一种
-python -m http.server 8000      # 然后打开 http://localhost:8000
-npx serve .
+python -m http.server 8000     # 然后打开 http://localhost:8000
 ```
 
 直接双击 `index.html` 也能玩（音效需要浏览器允许自动播放）。
@@ -47,19 +45,27 @@ npx serve .
 
 ```
 .
-├── index.html   # 页面骨架 + 开始/结算遮罩
-├── style.css    # 布局、HUD 外的 UI、触屏控件
-└── game.js      # 全部游戏逻辑与渲染（无依赖）
+├── index.html          # 页面骨架 + 开始/结算遮罩 + 触屏控件
+├── style.css           # 布局、遮罩、虚拟摇杆
+├── game.js             # 全部游戏逻辑与渲染
+└── assets/screenshot.png
 ```
 
-`game.js` 内部结构：输入 → 实体（玩家 / 敌人 / 粒子）→ 更新 → 渲染 → 主循环。关卡数据在 `LEVELS` 常量里，加一关只需要加一行。
+`game.js` 内部顺序：常量 → 音效 → 输入 → 实体 → 更新 → 渲染 → 主循环。关卡数据是顶部的 `LEVELS` 常量，**加一关只需要加一行**。
 
 ## 已知边界
 
-- 桌面优先；触屏控件在手机浏览器可用，但未针对小手势做深度优化
+- 桌面优先；触屏控件在手机浏览器可用，但未针对小手势深度优化
 - 音效为 WebAudio 实时合成，没有音频文件
-- 没有后端、没有存档同步，最高分只存在浏览器 localStorage
+- 没有后端，最高分只存在浏览器 localStorage
+- 没有存档同步
 
-## License
+## 参与
 
-MIT — 见 [LICENSE](LICENSE)。
+欢迎提 Issue 和 PR。开始之前请读 [贡献指南](CONTRIBUTING.md)——这个项目刻意保持零依赖、零构建，这是硬约束。
+
+本项目采用 [Contributor Covenant](CODE_OF_CONDUCT.md) 行为准则。
+
+## 许可
+
+[MIT](LICENSE) © 2026 intfai
