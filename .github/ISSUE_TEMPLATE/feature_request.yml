@@ -1,0 +1,47 @@
+name: 功能建议
+description: 想加内容、改手感、提平衡性
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        本项目刻意保持极简：**零依赖、零构建**。如果建议需要引入包管理器或框架，大概率不会被接受，但我仍然想听你的理由。
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: 你想要什么
+      placeholder: 加一个可以格挡的盾牌，冷却 3 秒
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: 为什么需要它
+      description: 它解决了什么问题？或者让游戏更好玩在哪？
+      placeholder: 目前只能挨打，没有主动应对手段，Boss 冲锋基本只能靠跑
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 影响范围
+      options:
+        - 手感/平衡调整（改数字）
+        - 新敌人或新关卡
+        - 新机制
+        - 界面/视觉
+        - 无障碍
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternative
+    attributes:
+      label: 你考虑过的替代方案
+      description: 可选。说明你已经想过其他做法，会更容易被接受
+    validations:
+      required: false
