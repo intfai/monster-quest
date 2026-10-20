@@ -1,0 +1,15 @@
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 本地测试产物
+.edge-cdp/
+.edge-profile/
+__pycache__/
+*.pyc
+*.log
+
+# 依赖（本项目不该有）
+node_modules/
