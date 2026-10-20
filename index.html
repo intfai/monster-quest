@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Monster Quest · 打怪闯关</title>
+<meta name="description" content="一个零依赖的 Canvas 打怪闯关小游戏：三关、Boss、键盘与触屏皆可玩。" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="960" height="540" aria-label="游戏画面"></canvas>
+
+  <div id="touch" aria-hidden="true">
+    <div id="stick"><div id="knob"></div></div>
+    <button id="btnAtk" type="button">攻击</button>
+  </div>
+
+  <div id="overlay">
+    <h1>Monster Quest</h1>
+    <p class="sub">打怪闯关 · 三关 · 有 Boss</p>
+    <div class="keys">
+      <span><kbd>WASD</kbd> / <kbd>方向键</kbd> 移动</span>
+      <span><kbd>J</kbd> / <kbd>空格</kbd> 攻击</span>
+    </div>
+    <p id="hint">按 <kbd>Enter</kbd> 开始</p>
+  </div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
