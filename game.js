@@ -362,6 +362,7 @@
         } else {
           level++;
           portal = null;
+          player.hp = Math.min(player.maxHp, player.hp + 2); // 过关回血，避免连锁暴毙
           spawnWave(level - 1);
           setBanner(LEVELS[level - 1].name);
           beep(520, 0.2, 'sine', 0.05);
